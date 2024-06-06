@@ -1,0 +1,14 @@
+[2024-05-22T12:20:12.793+0000] {processor.py:161} INFO - Started process (PID=5994) to work on /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/example_branch_day_of_week_operator.py
+[2024-05-22T12:20:12.797+0000] {processor.py:830} INFO - Processing file /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/example_branch_day_of_week_operator.py for tasks to queue
+[2024-05-22T12:20:12.808+0000] {logging_mixin.py:188} INFO - [2024-05-22T12:20:12.805+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/example_branch_day_of_week_operator.py
+[2024-05-22T12:20:12.885+0000] {processor.py:840} INFO - DAG(s) 'example_weekday_branch_operator' retrieved from /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/example_branch_day_of_week_operator.py
+[2024-05-22T12:20:13.412+0000] {logging_mixin.py:188} INFO - [2024-05-22T12:20:13.411+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-05-22T12:20:13.457+0000] {logging_mixin.py:188} INFO - [2024-05-22T12:20:13.456+0000] {dag.py:3954} INFO - Setting next_dagrun for example_weekday_branch_operator to 2024-05-21 00:00:00+00:00, run_after=2024-05-22 00:00:00+00:00
+[2024-05-22T12:20:13.558+0000] {processor.py:183} INFO - Processing /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/example_branch_day_of_week_operator.py took 0.814 seconds
+[2024-05-22T12:21:50.602+0000] {processor.py:161} INFO - Started process (PID=7151) to work on /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/example_branch_day_of_week_operator.py
+[2024-05-22T12:21:50.613+0000] {processor.py:830} INFO - Processing file /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/example_branch_day_of_week_operator.py for tasks to queue
+[2024-05-22T12:21:50.618+0000] {logging_mixin.py:188} INFO - [2024-05-22T12:21:50.617+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/example_branch_day_of_week_operator.py
+[2024-05-22T12:21:50.637+0000] {processor.py:840} INFO - DAG(s) 'example_weekday_branch_operator' retrieved from /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/example_branch_day_of_week_operator.py
+[2024-05-22T12:21:50.710+0000] {logging_mixin.py:188} INFO - [2024-05-22T12:21:50.710+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-05-22T12:21:50.766+0000] {logging_mixin.py:188} INFO - [2024-05-22T12:21:50.765+0000] {dag.py:3954} INFO - Setting next_dagrun for example_weekday_branch_operator to 2024-05-21 00:00:00+00:00, run_after=2024-05-22 00:00:00+00:00
+[2024-05-22T12:21:50.861+0000] {processor.py:183} INFO - Processing /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/example_branch_day_of_week_operator.py took 0.273 seconds

@@ -1,0 +1,5 @@
+[2024-05-22T12:21:35.227+0000] {processor.py:161} INFO - Started process (PID=6982) to work on /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/subdags/subdag.py
+[2024-05-22T12:21:35.230+0000] {processor.py:830} INFO - Processing file /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2024-05-22T12:21:35.237+0000] {logging_mixin.py:188} INFO - [2024-05-22T12:21:35.235+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/subdags/subdag.py
+[2024-05-22T12:21:35.243+0000] {processor.py:842} WARNING - No viable dags retrieved from /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/subdags/subdag.py
+[2024-05-22T12:21:35.286+0000] {processor.py:183} INFO - Processing /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/subdags/subdag.py took 0.080 seconds

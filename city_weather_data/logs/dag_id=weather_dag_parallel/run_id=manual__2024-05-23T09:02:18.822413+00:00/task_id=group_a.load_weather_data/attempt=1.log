@@ -1,0 +1,47 @@
+[2024-05-23T09:03:14.403+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-05-23T09:03:14.430+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_dag_parallel.group_a.load_weather_data manual__2024-05-23T09:02:18.822413+00:00 [queued]>
+[2024-05-23T09:03:14.451+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_dag_parallel.group_a.load_weather_data manual__2024-05-23T09:02:18.822413+00:00 [queued]>
+[2024-05-23T09:03:14.454+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2024-05-23T09:03:14.505+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): group_a.load_weather_data> on 2024-05-23 09:02:18.822413+00:00
+[2024-05-23T09:03:14.516+0000] {standard_task_runner.py:63} INFO - Started process 33124 to run task
+[2024-05-23T09:03:14.526+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'weather_dag_parallel', 'group_a.load_weather_data', 'manual__2024-05-23T09:02:18.822413+00:00', '--job-id', '125', '--raw', '--subdir', 'DAGS_FOLDER/weatherapi_dag.py', '--cfg-path', '/tmp/tmp74bpkihx']
+[2024-05-23T09:03:14.530+0000] {standard_task_runner.py:91} INFO - Job 125: Subtask group_a.load_weather_data
+[2024-05-23T09:03:14.628+0000] {task_command.py:426} INFO - Running <TaskInstance: weather_dag_parallel.group_a.load_weather_data manual__2024-05-23T09:02:18.822413+00:00 [running]> on host ubuntu2204
+[2024-05-23T09:03:14.850+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='test@gmail.com' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='weather_dag_parallel' AIRFLOW_CTX_TASK_ID='group_a.load_weather_data' AIRFLOW_CTX_EXECUTION_DATE='2024-05-23T09:02:18.822413+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-05-23T09:02:18.822413+00:00'
+[2024-05-23T09:03:14.851+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-05-23T09:03:14.880+0000] {postgres.py:176} INFO - Running copy expert: COPY weather_data FROM stdin WITH DELIMETER AS ',', filename: current_weather_data_kyiv.csv
+[2024-05-23T09:03:14.888+0000] {base.py:84} INFO - Using connection ID '***_conn' for task execution.
+[2024-05-23T09:03:15.475+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-05-23T09:03:15.477+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/denys/airflow_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/denys/airflow_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/denys/airflow_venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/denys/airflow_venv/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/denys/airflow_venv/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/denys/airflow/dags/weatherapi_dag.py", line 61, in load_data
+    hook.copy_expert(sql="COPY weather_data FROM stdin WITH DELIMETER AS ','",
+  File "/home/denys/airflow_venv/lib/python3.12/site-packages/airflow/providers/postgres/hooks/postgres.py", line 182, in copy_expert
+    cur.copy_expert(sql, file)
+psycopg2.errors.SyntaxError: syntax error at or near "DELIMETER"
+LINE 1: COPY weather_data FROM stdin WITH DELIMETER AS ','
+                                          ^
+
+[2024-05-23T09:03:15.497+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=weather_dag_parallel, task_id=group_a.load_weather_data, run_id=manual__2024-05-23T09:02:18.822413+00:00, execution_date=20240523T090218, start_date=20240523T090314, end_date=20240523T090315
+[2024-05-23T09:03:15.541+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 125 for task group_a.load_weather_data (syntax error at or near "DELIMETER"
+LINE 1: COPY weather_data FROM stdin WITH DELIMETER AS ','
+                                          ^
+; 33124)
+[2024-05-23T09:03:15.553+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-05-23T09:03:15.578+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-05-23T09:03:15.581+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

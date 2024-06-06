@@ -1,0 +1,21 @@
+[2024-05-23T09:45:23.325+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-05-23T09:45:23.372+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_dag_parallel.group_a.extract_weather_data manual__2024-05-23T09:02:18.822413+00:00 [queued]>
+[2024-05-23T09:45:23.393+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_dag_parallel.group_a.extract_weather_data manual__2024-05-23T09:02:18.822413+00:00 [queued]>
+[2024-05-23T09:45:23.396+0000] {taskinstance.py:2306} INFO - Starting attempt 4 of 6
+[2024-05-23T09:45:23.481+0000] {taskinstance.py:2330} INFO - Executing <Task(SimpleHttpOperator): group_a.extract_weather_data> on 2024-05-23 09:02:18.822413+00:00
+[2024-05-23T09:45:23.499+0000] {standard_task_runner.py:63} INFO - Started process 57379 to run task
+[2024-05-23T09:45:23.516+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'weather_dag_parallel', 'group_a.extract_weather_data', 'manual__2024-05-23T09:02:18.822413+00:00', '--job-id', '156', '--raw', '--subdir', 'DAGS_FOLDER/weatherapi_dag.py', '--cfg-path', '/tmp/tmp_kta1lwp']
+[2024-05-23T09:45:23.520+0000] {standard_task_runner.py:91} INFO - Job 156: Subtask group_a.extract_weather_data
+[2024-05-23T09:45:23.678+0000] {task_command.py:426} INFO - Running <TaskInstance: weather_dag_parallel.group_a.extract_weather_data manual__2024-05-23T09:02:18.822413+00:00 [running]> on host ubuntu2204
+[2024-05-23T09:45:23.969+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='test@gmail.com' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='weather_dag_parallel' AIRFLOW_CTX_TASK_ID='group_a.extract_weather_data' AIRFLOW_CTX_EXECUTION_DATE='2024-05-23T09:02:18.822413+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-05-23T09:02:18.822413+00:00'
+[2024-05-23T09:45:23.975+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-05-23T09:45:24.024+0000] {http.py:169} INFO - Calling HTTP method
+[2024-05-23T09:45:24.039+0000] {base.py:84} INFO - Using connection ID 'weathermap_api' for task execution.
+[2024-05-23T09:45:24.120+0000] {base.py:84} INFO - Using connection ID 'weathermap_api' for task execution.
+[2024-05-23T09:45:24.629+0000] {http.py:208} INFO - {"coord":{"lon":30.5167,"lat":50.4333},"weather":[{"id":801,"main":"Clouds","description":"few clouds","icon":"02d"}],"base":"stations","main":{"temp":298.21,"feels_like":297.89,"temp_min":298.21,"temp_max":298.21,"pressure":1019,"humidity":43,"sea_level":1019,"grnd_level":1003},"visibility":10000,"wind":{"speed":4.7,"deg":87,"gust":5.65},"clouds":{"all":22},"dt":1716457052,"sys":{"country":"UA","sunrise":1716429602,"sunset":1716486581},"timezone":10800,"id":703448,"name":"Kyiv","cod":200}
+[2024-05-23T09:45:24.643+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-05-23T09:45:24.719+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=weather_dag_parallel, task_id=group_a.extract_weather_data, run_id=manual__2024-05-23T09:02:18.822413+00:00, execution_date=20240523T090218, start_date=20240523T094523, end_date=20240523T094524
+[2024-05-23T09:45:24.868+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-05-23T09:45:24.910+0000] {logging_mixin.py:188} WARNING - /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/models/baseoperator.py:1296 AirflowProviderDeprecationWarning: Call to deprecated class SimpleHttpOperator. (Class `SimpleHttpOperator` is deprecated and will be removed in a future release. Please use `HttpOperator` instead.)
+[2024-05-23T09:45:24.963+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-05-23T09:45:25.025+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

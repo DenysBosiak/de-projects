@@ -1,0 +1,14 @@
+[2024-05-22T12:20:04.983+0000] {processor.py:161} INFO - Started process (PID=5868) to work on /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/tutorial_dag.py
+[2024-05-22T12:20:04.985+0000] {processor.py:830} INFO - Processing file /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/tutorial_dag.py for tasks to queue
+[2024-05-22T12:20:04.995+0000] {logging_mixin.py:188} INFO - [2024-05-22T12:20:04.994+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/tutorial_dag.py
+[2024-05-22T12:20:05.027+0000] {processor.py:840} INFO - DAG(s) 'tutorial_dag' retrieved from /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/tutorial_dag.py
+[2024-05-22T12:20:05.328+0000] {logging_mixin.py:188} INFO - [2024-05-22T12:20:05.328+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-05-22T12:20:05.353+0000] {logging_mixin.py:188} INFO - [2024-05-22T12:20:05.352+0000] {dag.py:3954} INFO - Setting next_dagrun for tutorial_dag to None, run_after=None
+[2024-05-22T12:20:05.579+0000] {processor.py:183} INFO - Processing /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/tutorial_dag.py took 0.627 seconds
+[2024-05-22T12:21:44.335+0000] {processor.py:161} INFO - Started process (PID=7085) to work on /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/tutorial_dag.py
+[2024-05-22T12:21:44.352+0000] {processor.py:830} INFO - Processing file /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/tutorial_dag.py for tasks to queue
+[2024-05-22T12:21:44.363+0000] {logging_mixin.py:188} INFO - [2024-05-22T12:21:44.362+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/tutorial_dag.py
+[2024-05-22T12:21:44.379+0000] {processor.py:840} INFO - DAG(s) 'tutorial_dag' retrieved from /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/tutorial_dag.py
+[2024-05-22T12:21:44.448+0000] {logging_mixin.py:188} INFO - [2024-05-22T12:21:44.448+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-05-22T12:21:44.498+0000] {logging_mixin.py:188} INFO - [2024-05-22T12:21:44.497+0000] {dag.py:3954} INFO - Setting next_dagrun for tutorial_dag to None, run_after=None
+[2024-05-22T12:21:44.647+0000] {processor.py:183} INFO - Processing /home/denys/airflow_venv/lib/python3.12/site-packages/airflow/example_dags/tutorial_dag.py took 0.326 seconds
