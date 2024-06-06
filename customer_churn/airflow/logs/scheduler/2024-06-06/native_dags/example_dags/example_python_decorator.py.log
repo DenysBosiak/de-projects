@@ -1,0 +1,12 @@
+[2024-06-06T14:23:43.002+0000] {processor.py:161} INFO - Started process (PID=37026) to work on /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_python_decorator.py
+[2024-06-06T14:23:43.003+0000] {processor.py:830} INFO - Processing file /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_python_decorator.py for tasks to queue
+[2024-06-06T14:23:43.007+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:43.006+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_python_decorator.py
+[2024-06-06T14:23:43.030+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:43.029+0000] {example_python_decorator.py:80} WARNING - The virtalenv_python example task requires virtualenv, please install it.
+[2024-06-06T14:23:43.031+0000] {processor.py:840} INFO - DAG(s) 'example_python_decorator' retrieved from /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_python_decorator.py
+[2024-06-06T14:23:43.217+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:43.215+0000] {override.py:1829} INFO - Created Permission View: can edit on DAG:example_python_decorator
+[2024-06-06T14:23:43.264+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:43.259+0000] {override.py:1829} INFO - Created Permission View: can read on DAG:example_python_decorator
+[2024-06-06T14:23:43.308+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:43.307+0000] {override.py:1829} INFO - Created Permission View: can delete on DAG:example_python_decorator
+[2024-06-06T14:23:43.310+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:43.309+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-06T14:23:43.343+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:43.342+0000] {dag.py:3118} INFO - Creating ORM DAG for example_python_decorator
+[2024-06-06T14:23:43.344+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:43.344+0000] {dag.py:3954} INFO - Setting next_dagrun for example_python_decorator to None, run_after=None
+[2024-06-06T14:23:43.418+0000] {processor.py:183} INFO - Processing /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_python_decorator.py took 0.425 seconds

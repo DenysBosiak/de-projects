@@ -1,0 +1,11 @@
+[2024-06-06T14:24:09.941+0000] {processor.py:161} INFO - Started process (PID=37363) to work on /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_bash_operator.py
+[2024-06-06T14:24:09.943+0000] {processor.py:830} INFO - Processing file /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_bash_operator.py for tasks to queue
+[2024-06-06T14:24:09.952+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:24:09.950+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_bash_operator.py
+[2024-06-06T14:24:10.002+0000] {processor.py:840} INFO - DAG(s) 'example_bash_operator' retrieved from /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_bash_operator.py
+[2024-06-06T14:24:10.374+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:24:10.373+0000] {override.py:1829} INFO - Created Permission View: can edit on DAG:example_bash_operator
+[2024-06-06T14:24:10.414+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:24:10.413+0000] {override.py:1829} INFO - Created Permission View: can read on DAG:example_bash_operator
+[2024-06-06T14:24:10.478+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:24:10.478+0000] {override.py:1829} INFO - Created Permission View: can delete on DAG:example_bash_operator
+[2024-06-06T14:24:10.479+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:24:10.479+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-06T14:24:10.494+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:24:10.493+0000] {dag.py:3118} INFO - Creating ORM DAG for example_bash_operator
+[2024-06-06T14:24:10.509+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:24:10.508+0000] {dag.py:3954} INFO - Setting next_dagrun for example_bash_operator to 2024-06-05 00:00:00+00:00, run_after=2024-06-06 00:00:00+00:00
+[2024-06-06T14:24:10.574+0000] {processor.py:183} INFO - Processing /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_bash_operator.py took 0.689 seconds

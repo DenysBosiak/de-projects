@@ -1,0 +1,11 @@
+[2024-06-06T14:23:32.545+0000] {processor.py:161} INFO - Started process (PID=36892) to work on /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_params_ui_tutorial.py
+[2024-06-06T14:23:32.548+0000] {processor.py:830} INFO - Processing file /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_params_ui_tutorial.py for tasks to queue
+[2024-06-06T14:23:32.557+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:32.552+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_params_ui_tutorial.py
+[2024-06-06T14:23:32.577+0000] {processor.py:840} INFO - DAG(s) 'example_params_ui_tutorial' retrieved from /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_params_ui_tutorial.py
+[2024-06-06T14:23:32.849+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:32.848+0000] {override.py:1829} INFO - Created Permission View: can edit on DAG:example_params_ui_tutorial
+[2024-06-06T14:23:32.895+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:32.894+0000] {override.py:1829} INFO - Created Permission View: can read on DAG:example_params_ui_tutorial
+[2024-06-06T14:23:32.930+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:32.927+0000] {override.py:1829} INFO - Created Permission View: can delete on DAG:example_params_ui_tutorial
+[2024-06-06T14:23:32.931+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:32.930+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-06T14:23:32.959+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:32.958+0000] {dag.py:3118} INFO - Creating ORM DAG for example_params_ui_tutorial
+[2024-06-06T14:23:32.960+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:32.960+0000] {dag.py:3954} INFO - Setting next_dagrun for example_params_ui_tutorial to None, run_after=None
+[2024-06-06T14:23:33.016+0000] {processor.py:183} INFO - Processing /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_params_ui_tutorial.py took 0.483 seconds

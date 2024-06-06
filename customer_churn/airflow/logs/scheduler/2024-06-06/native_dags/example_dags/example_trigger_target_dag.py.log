@@ -1,0 +1,18 @@
+[2024-06-06T14:23:16.123+0000] {processor.py:161} INFO - Started process (PID=36706) to work on /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_trigger_target_dag.py
+[2024-06-06T14:23:16.124+0000] {processor.py:830} INFO - Processing file /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_trigger_target_dag.py for tasks to queue
+[2024-06-06T14:23:16.125+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:16.124+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_trigger_target_dag.py
+[2024-06-06T14:23:16.130+0000] {processor.py:840} INFO - DAG(s) 'example_trigger_target_dag' retrieved from /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_trigger_target_dag.py
+[2024-06-06T14:23:16.241+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:16.241+0000] {override.py:1829} INFO - Created Permission View: can edit on DAG:example_trigger_target_dag
+[2024-06-06T14:23:16.258+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:16.258+0000] {override.py:1829} INFO - Created Permission View: can read on DAG:example_trigger_target_dag
+[2024-06-06T14:23:16.273+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:16.273+0000] {override.py:1829} INFO - Created Permission View: can delete on DAG:example_trigger_target_dag
+[2024-06-06T14:23:16.273+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:16.273+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-06T14:23:16.283+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:16.282+0000] {dag.py:3118} INFO - Creating ORM DAG for example_trigger_target_dag
+[2024-06-06T14:23:16.283+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:16.283+0000] {dag.py:3954} INFO - Setting next_dagrun for example_trigger_target_dag to None, run_after=None
+[2024-06-06T14:23:16.314+0000] {processor.py:183} INFO - Processing /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_trigger_target_dag.py took 0.196 seconds
+[2024-06-06T14:24:33.626+0000] {processor.py:161} INFO - Started process (PID=37529) to work on /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_trigger_target_dag.py
+[2024-06-06T14:24:33.634+0000] {processor.py:830} INFO - Processing file /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_trigger_target_dag.py for tasks to queue
+[2024-06-06T14:24:33.641+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:24:33.639+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_trigger_target_dag.py
+[2024-06-06T14:24:33.660+0000] {processor.py:840} INFO - DAG(s) 'example_trigger_target_dag' retrieved from /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_trigger_target_dag.py
+[2024-06-06T14:24:33.703+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:24:33.703+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-06T14:24:33.742+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:24:33.741+0000] {dag.py:3954} INFO - Setting next_dagrun for example_trigger_target_dag to None, run_after=None
+[2024-06-06T14:24:33.832+0000] {processor.py:183} INFO - Processing /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_trigger_target_dag.py took 0.221 seconds
