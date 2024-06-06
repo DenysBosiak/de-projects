@@ -9,7 +9,13 @@ from airflow.providers.postgres.hooks.postgres import PostgresHook
 from datetime import timedelta, datetime
 import json
 import pandas as pd
+import configparser
 
+
+# Parse parameters
+parser = configparser.ConfigParser()
+parser.read("/home/denys/workspace/de-projects/city_weather_data/pipeline.conf")
+API_TOKEN = parser.get("OpenWeatherMap", "token")
 
 
 # Convert temperature from kelvin to fahrenheit
@@ -179,13 +185,13 @@ with DAG("weather_dag_parallel",
         is_kyiv_weather_api_ready = HttpSensor(
             task_id = 'is_weater_api_ready',
             http_conn_id = 'weathermap_api',
-            endpoint = '/data/2.5/weather?q=Kyiv&appid=a2fc2ab52b832be75e0040a88f3e406a'
+            endpoint = f'/data/2.5/weather?q=Kyiv&appid={API_TOKEN}'
         )        
 
         extract_kyiv_weather_data = SimpleHttpOperator(
             task_id = 'extract_weather_data',
             http_conn_id = 'weathermap_api',
-            endpoint = '/data/2.5/weather?q=Kyiv&appid=a2fc2ab52b832be75e0040a88f3e406a',
+            endpoint = f'/data/2.5/weather?q=Kyiv&appid={API_TOKEN}',
             method = 'GET',
             response_filter = lambda r: json.loads(r.text),
             log_response = True
