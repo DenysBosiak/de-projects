@@ -1,6 +1,7 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.providers.amazon.aws.hooks.base_aws import AwsGenericHook
+from airflow.providers.amazon.aws.sensors.glue import GlueJobSensor
 from datetime import timedelta, datetime
 import time
 
@@ -19,12 +20,13 @@ def glue_job_s3_to_redshift_transfer(job_name, **kwargs):
 
 def get_run_id():
     time.sleep(8)
-    session = AwsGenericHooks.(aes_conn_id='aws_s3_conn')
+    session = AwsGenericHook(aws_conn_id='aws_s3_conn')
     boto3_session = session.get_session(region_name='eu-north-1')
     glue_client = boto3_session.client('glue')
     response = glue_client.get_job_runs(JobName="s3_upload_to_redshift_gluejob")
     job_run_id = response["JobRuns"][0]["Id"]
     return job_run_id
+
 
 
 default_args = {
@@ -40,7 +42,7 @@ default_args = {
 
 with DAG('my_dag',
          default_args=default_args,
-         schedule_interval='@weakly',
+         schedule_interval='@weekly',
          catchup=False) as dag:
     
 
@@ -58,3 +60,16 @@ with DAG('my_dag',
         python_callable=get_run_id
     )
 
+
+    is_glue_job_finish_running = GlueJobSensor(
+        task_id='is_glue_job_finish_running',
+        job_name='s3_upload_to_redshift_gluejob',
+        run_id='{{task_instance.xcom_pull("grab_glue_job_run_id")}}',
+        verbose=True,
+        aws_conn_id='aws_s3_conn',
+        poke_interval=60,
+        timeout=3600
+    )
+
+
+    glue_job_trigger >> grab_glue_job_run_id >> is_glue_job_finish_running
