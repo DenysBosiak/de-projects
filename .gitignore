@@ -1,1 +1,5 @@
 *.conf
+standalone_admin_password.txt
+*.db
+
+logs/
