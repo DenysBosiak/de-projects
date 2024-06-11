@@ -1,5 +1,0 @@
-[2024-06-06T14:23:57.719+0000] {processor.py:161} INFO - Started process (PID=37210) to work on /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_branch_operator.py
-[2024-06-06T14:23:57.721+0000] {processor.py:830} INFO - Processing file /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_branch_operator.py for tasks to queue
-[2024-06-06T14:23:57.725+0000] {logging_mixin.py:188} INFO - [2024-06-06T14:23:57.724+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_branch_operator.py
-[2024-06-06T14:23:57.732+0000] {processor.py:842} WARNING - No viable dags retrieved from /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_branch_operator.py
-[2024-06-06T14:23:57.759+0000] {processor.py:183} INFO - Processing /home/denys/workspace/de-projects/customer_churn/venv/lib/python3.12/site-packages/airflow/example_dags/example_branch_operator.py took 0.054 seconds

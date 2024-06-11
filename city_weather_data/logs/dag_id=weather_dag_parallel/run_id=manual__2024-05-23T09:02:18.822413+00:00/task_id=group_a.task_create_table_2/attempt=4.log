@@ -1,3 +1,0 @@
-[2024-05-23T10:04:43.260+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
-[2024-05-23T10:04:43.287+0000] {taskinstance.py:2066} INFO - Dependencies not met for <TaskInstance: weather_dag_parallel.group_a.task_create_table_2 manual__2024-05-23T09:02:18.822413+00:00 [success]>, dependency 'Task Instance State' FAILED: Task is in the 'success' state.
-[2024-05-23T10:04:43.288+0000] {local_task_job_runner.py:163} INFO - Task is not able to be run
