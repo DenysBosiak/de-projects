@@ -1,0 +1,7 @@
+-- files
+*.conf
+
+-- catalogs
+.venv
+logs
+__pycache__
