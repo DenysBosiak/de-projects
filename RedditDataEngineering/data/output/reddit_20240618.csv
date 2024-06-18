@@ -1,0 +1,30 @@
+id,title,score,num_comments,author,created_utc,url,over_18,edited,spoiler,stickied
+1dieubi,Data Engineer vs Analytics Engineer vs Data Analyst,84,20,Bubbly_Bed_4478,2024-06-18 01:34:41,https://i.redd.it/31k81vbgh87d1.jpeg,False,False,False,False
+1dime2d,NumPy 2.0,93,7,ivanovyordan,2024-06-18 09:21:49,https://i.redd.it/43mv1fvwsa7d1.gif,False,False,False,False
+1di0owj,Thoughts on Databricks,46,26,jaina15,2024-06-17 15:21:33,https://www.reddit.com/r/dataengineering/comments/1di0owj/thoughts_on_databricks/,False,False,False,False
+1di08ky,"PowerBI with cloud data platform like snowflake, Databricks- how does it makes sense?",23,18,PreparationScared835,2024-06-17 15:02:47,https://www.reddit.com/r/dataengineering/comments/1di08ky/powerbi_with_cloud_data_platform_like_snowflake/,False,False,False,False
+1di34ag,How important is system design knowledge for DEs? ,15,7,perfektenschlagggg,2024-06-17 17:02:10,https://www.reddit.com/r/dataengineering/comments/1di34ag/how_important_is_system_design_knowledge_for_des/,False,False,False,False
+1dikvtd,Advice need on open-source real-time data streaming platform,10,4,vishalw007,2024-06-18 07:31:55,https://www.reddit.com/r/dataengineering/comments/1dikvtd/advice_need_on_opensource_realtime_data_streaming/,False,False,False,False
+1dilie1,What are your takes on Nightshift?,8,8,Clear-Blacksmith-650,2024-06-18 08:16:33,https://www.reddit.com/r/dataengineering/comments/1dilie1/what_are_your_takes_on_nightshift/,False,False,False,False
+1di3m0e,Data Platform Design courses,8,2,CommitteeQueasy428,2024-06-17 17:22:03,https://www.reddit.com/r/dataengineering/comments/1di3m0e/data_platform_design_courses/,False,False,False,False
+1di1zik,Has anyone actually gotten PyBeam + Kafka + K8s to work?,4,8,shepzuck,2024-06-17 16:14:56,https://www.reddit.com/r/dataengineering/comments/1di1zik/has_anyone_actually_gotten_pybeam_kafka_k8s_to/,False,False,False,False
+1dijhu1,"Slowly changing dimension type 2 (scd2) at load time: How to, why, why not, and colab implementation example.",4,5,Thinker_Assignment,2024-06-18 05:56:01,https://www.reddit.com/r/dataengineering/comments/1dijhu1/slowly_changing_dimension_type_2_scd2_at_load/,False,False,False,False
+1die4n8,How have you seen DistCp implemented?,4,0,Grouchy-Touch-6570,2024-06-18 00:58:19,https://www.reddit.com/r/dataengineering/comments/1die4n8/how_have_you_seen_distcp_implemented/,False,False,False,False
+1di5owf,Looking for clarity on building data models and popular approaches,4,8,nayosmayo,2024-06-17 18:49:09,https://www.reddit.com/r/dataengineering/comments/1di5owf/looking_for_clarity_on_building_data_models_and/,False,False,False,False
+1di6jkc,Is there really no good way to convert a field of z-scores to their corresponding p-values in SQL?,3,30,PangeanPrawn,2024-06-17 19:24:17,https://www.reddit.com/r/dataengineering/comments/1di6jkc/is_there_really_no_good_way_to_convert_a_field_of/,False,False,False,False
+1di1215,Need Helped deleting a duplicate row detected in Type 2 SCD ,3,11,DrunkenWhaler136,2024-06-17 15:36:36,https://www.reddit.com/r/dataengineering/comments/1di1215/need_helped_deleting_a_duplicate_row_detected_in/,False,False,False,False
+1dipkle,Usage Analytics Roadblocks: Solving with Model-First Data Products,2,0,growth_man,2024-06-18 12:34:26,https://moderndata101.substack.com/p/usage-analytics-with-model-first-data-products,False,False,False,False
+1dipf0w,Where to go from principal?,2,2,Dry_Inflation307,2024-06-18 12:26:24,https://www.reddit.com/r/dataengineering/comments/1dipf0w/where_to_go_from_principal/,False,False,False,False
+1diotih,Specific Data Engineering Design Questions,2,2,kerokero134340,2024-06-18 11:54:40,https://www.reddit.com/r/dataengineering/comments/1diotih/specific_data_engineering_design_questions/,False,False,False,False
+1di25j9,Remote SQL Server to Local SQL Server,2,3,moo51,2024-06-17 16:21:48,https://www.reddit.com/r/dataengineering/comments/1di25j9/remote_sql_server_to_local_sql_server/,False,False,False,False
+1diozyc,DuckDb vs Spark,1,2,Deep-Shape-323,2024-06-18 12:04:08,https://www.reddit.com/r/dataengineering/comments/1diozyc/duckdb_vs_spark/,False,False,False,False
+1dijsz6,Issues with Hive Table Partitions & Schema Evolution,1,0,ynaavi,2024-06-18 06:16:36,https://www.reddit.com/r/dataengineering/comments/1dijsz6/issues_with_hive_table_partitions_schema_evolution/,False,False,False,False
+1difp1y,Transitioning to Data Engineering in Gen AI,1,2,No-Manufacturer-3155,2024-06-18 02:17:36,https://www.reddit.com/r/dataengineering/comments/1difp1y/transitioning_to_data_engineering_in_gen_ai/,False,False,False,False
+1diegy8,DE pipelines/solutions for end user input configurations,1,2,Fancy-Effective-1766,2024-06-18 01:15:34,https://www.reddit.com/r/dataengineering/comments/1diegy8/de_pipelinessolutions_for_end_user_input/,False,False,False,False
+1dicx7g,Streaming ETL options in 2024 in Python?,1,5,unlikelyzer0,2024-06-17 23:59:18,https://www.reddit.com/r/dataengineering/comments/1dicx7g/streaming_etl_options_in_2024_in_python/,False,False,False,False
+1di7byp,Conical Data Modeling ,1,0,th3DataArch1t3ct,2024-06-17 19:57:07,https://www.reddit.com/r/dataengineering/comments/1di7byp/conical_data_modeling/,False,False,False,False
+1dhxrww,DE from mech engineering,1,7,itsnikkip,2024-06-17 13:14:29,https://www.reddit.com/r/dataengineering/comments/1dhxrww/de_from_mech_engineering/,False,False,False,False
+1dinqod,Need a faster and cheaper compute resource for processing data stored in snowflake ,1,12,LucaMarko,2024-06-18 10:51:20,https://www.reddit.com/r/dataengineering/comments/1dinqod/need_a_faster_and_cheaper_compute_resource_for/,False,False,False,False
+1diexl6,Tutorial - How to use a makefile with dbt (with boilerplate),0,1,devschema,2024-06-18 01:39:40,https://medium.com/inthepipeline/how-to-use-a-makefile-to-speed-up-your-dbt-project-workflow-fb36eb676910,False,False,False,False
+1dieim3,"Understand the Evolution of Data Integration, from ETL to ELT to ELTP
+",0,0,Bubbly_Bed_4478,2024-06-18 01:17:50,https://www.reddit.com/r/dataengineering/comments/1dieim3/understand_the_evolution_of_data_integration_from/,False,False,False,False
