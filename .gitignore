@@ -5,3 +5,4 @@ standalone_admin_password.txt
 logs/
 .venv
 venv
+.git-old/
