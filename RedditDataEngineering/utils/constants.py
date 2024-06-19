@@ -34,3 +34,9 @@ POST_FIELDS = (
     'spoiler',
     'stickied'
 )
+
+
+AWS_SECRET_KEY = parser.get(section='aws', option='secret_key')
+AWS_ACCESS_KEY_ID = parser.get(section='aws', option='access_key_id')
+AWS_BUCKET_NAME = parser.get(section='aws', option='bucket_name')
+AWS_REGION_NAME = parser.get(section='aws', option='region_name')
