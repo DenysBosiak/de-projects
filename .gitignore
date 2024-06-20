@@ -1,6 +1,7 @@
 *.conf
 standalone_admin_password.txt
 *.db
+*.json
 
 logs/
 .venv
