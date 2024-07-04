@@ -6,6 +6,7 @@ from cassandra.cluster import Cluster
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import from_json, col
 from pyspark.sql.types import StructType, StructField, StringType
+from pyspark.sql.dataframe import DataFrame
 
 
 def create_keyspace(session):
@@ -87,7 +88,7 @@ def create_spark_connection():
 
 
 def connect_to_kafka(spark_conn):
-    spark_df = None
+    spark_df = DataFrame
 
     try:
         spark_df = spark_conn.readStream \
@@ -117,7 +118,7 @@ def create_cassandra_connection():
         return None
     
 
-def create_selection_df_from_kafka(spark_df):
+def create_selection_df_from_kafka(spark_df: DataFrame):
     schema = StructType([
         StructField("id", StringType(), False),
         StructField("furst_name", StringType(), False),
