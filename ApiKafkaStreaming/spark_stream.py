@@ -5,6 +5,7 @@ from cassandra.auth import PlainTextAuthProvider
 from cassandra.cluster import Cluster
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import from_json, col
+from pyspark.sql.types import StructType, StructField, StringType
 
 
 def create_keyspace(session):
@@ -32,10 +33,11 @@ def create_table(session):
                     phone TEXT,
                     picture TEXT
 
-        )
+        );
     """)
 
     print("Table created successfully!")    
+
 
 def insert_data(session, **kwargs):
     print("Insertin data ...")
@@ -71,9 +73,9 @@ def create_spark_connection():
     try:
         s_conn = SparkSession.builder \
                             .appName('SparkStreaming') \
-                            .config('spark.jars.packages', "com.datastax.spark:spark-cassandra-connector_2.13:3.41",
+                            .config('spark.jars.packages', "com.datastax.spark:spark-cassandra-connector_2.13:3.4.1,"
                                                             "org.apache.spark:spark-sql-kafka-0-10_2.13:3.4.1") \
-                            .config('spark.cassandra.connetion.host', "localhost") \
+                            .config('spark.cassandra.connetion.host', 'localhost') \
                             .getOrCreate()
         
         s_conn.sparkContext.setLogLevel("ERROR")
@@ -82,6 +84,24 @@ def create_spark_connection():
         logging.error(f"Couldn't create the spark session due the exception {e}")
         
     return s_conn
+
+
+def connect_to_kafka(spark_conn):
+    spark_df = None
+
+    try:
+        spark_df = spark_conn.readStream \
+            .format('kafka') \
+            .option('kafka.bootstrap.servers', 'localhost:9092') \
+            .option('subscribe', 'users_created') \
+            .option('startingOffsets', 'earliest') \
+            .load()
+        logging.info("Kafka dataframe created successfully!")
+        
+    except Exception as e:
+        logging.error(f"Kafka dataframe could not be created because: {e}")
+
+    return spark_df
 
 
 def create_cassandra_connection():
@@ -95,14 +115,51 @@ def create_cassandra_connection():
     except Exception as e:
         logging.error(f"Couldn't create cassandra connection due to {e}")
         return None
+    
+
+def create_selection_df_from_kafka(spark_df):
+    schema = StructType([
+        StructField("id", StringType(), False),
+        StructField("furst_name", StringType(), False),
+        StructField("last_name", StringType(), False),
+        StructField("gender", StringType(), False),
+        StructField("address", StringType(), False),
+        StructField("postcode", StringType(), False),
+        StructField("email", StringType(), False),
+        StructField("username", StringType(), False),
+        StructField("refistered_date", StringType(), False),
+        StructField("phone", StringType(), False),
+        StructField("picture", StringType(), False)
+    ])
+
+    sel = spark_df.selectExpr("CAST(value AS STRING)") \
+            .select(from_json(col('value'), schema).alias('data')).select("data.*")
+    print(sel)
+
+    return sel
 
 
 if __name__ == "__main__":
+    # Create spark connection
     spark_conn = create_spark_connection()
 
     if spark_conn is not None:
+        # Connect to kafka with spark connection
+        spark_df = connect_to_kafka(spark_conn)
+    
+        selection_df = create_selection_df_from_kafka(spark_df)
+
+        # Create cassandra session
         session = create_cassandra_connection()
 
         if session is not None:
             create_keyspace(session)
             create_table(session)
+            #insert_data(session)
+
+            streaming_query = (selection_df.writeStream.format("org.spsche.spark.sql.cassandra") \
+                                            .option('checkpointLocation', '/tmp/checkpoint') \
+                                            .option('keyspace', 'spark_streams') \
+                                            .option('table', 'created_users') \
+                                            .start())
+            streaming_query.awaitTermination()
