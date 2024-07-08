@@ -6,7 +6,6 @@ from cassandra.cluster import Cluster
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import from_json, col
 from pyspark.sql.types import StructType, StructField, StringType
-from pyspark.sql.dataframe import DataFrame
 
 
 def create_keyspace(session):
@@ -29,7 +28,7 @@ def create_table(session):
                     post_code TEXT,
                     email TEXT,
                     username TEXT,
-                    dob TEXT
+                    dob TEXT,
                     registered_date TEXT,
                     phone TEXT,
                     picture TEXT
@@ -75,7 +74,7 @@ def create_spark_connection():
         s_conn = SparkSession.builder \
                             .appName('SparkStreaming') \
                             .config('spark.jars.packages', "com.datastax.spark:spark-cassandra-connector_2.13:3.4.1,"
-                                                            "org.apache.spark:spark-sql-kafka-0-10_2.13:3.4.1") \
+                                                            "org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.1") \
                             .config('spark.cassandra.connetion.host', 'localhost') \
                             .getOrCreate()
         
@@ -87,13 +86,13 @@ def create_spark_connection():
     return s_conn
 
 
-def connect_to_kafka(spark_conn):
-    spark_df = DataFrame
+def connect_to_kafka(spark_conn: SparkSession):
+    # spark_df = spark_conn.createDataFrame([], StructType([]))
 
     try:
         spark_df = spark_conn.readStream \
             .format('kafka') \
-            .option('kafka.bootstrap.servers', 'localhost:9092') \
+            .option('kafka.bootstrap.servers', 'broker:9092') \
             .option('subscribe', 'users_created') \
             .option('startingOffsets', 'earliest') \
             .load()
@@ -118,26 +117,26 @@ def create_cassandra_connection():
         return None
     
 
-def create_selection_df_from_kafka(spark_df: DataFrame):
+def create_selection_df_from_kafka(spark_df):
     schema = StructType([
         StructField("id", StringType(), False),
-        StructField("furst_name", StringType(), False),
+        StructField("first_name", StringType(), False),
         StructField("last_name", StringType(), False),
         StructField("gender", StringType(), False),
         StructField("address", StringType(), False),
         StructField("postcode", StringType(), False),
         StructField("email", StringType(), False),
         StructField("username", StringType(), False),
-        StructField("refistered_date", StringType(), False),
+        StructField("registered_date", StringType(), False),
         StructField("phone", StringType(), False),
         StructField("picture", StringType(), False)
     ])
 
-    sel = spark_df.selectExpr("CAST(value AS STRING)") \
-            .select(from_json(col('value'), schema).alias('data')).select("data.*")
-    print(sel)
+    sel = spark_df.selectExpr("cast(value as string) as value")
+    sel_expanded = sel.select(from_json(col('value'), schema).alias('data')).select("data.*")
+    print(sel_expanded)
 
-    return sel
+    return sel_expanded
 
 
 if __name__ == "__main__":
