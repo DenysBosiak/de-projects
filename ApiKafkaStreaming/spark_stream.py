@@ -75,7 +75,8 @@ def create_spark_connection():
                             .config('spark.jars.packages', "com.datastax.spark:spark-cassandra-connector_2.12:3.4.1,"
                                                             "org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.1,"
                                                             "org.apache.kafka:kafka-clients:7.4.0-ce") \
-                            .config('spark.cassandra.connetion.host', 'localhost:9042') \
+                            .config('spark.cassandra.connection.host', 'localhost') \
+                            .config('spark.cassandra.connection.post', '9092') \
                             .getOrCreate()
         
         s_conn.sparkContext.setLogLevel("ERROR")
@@ -170,5 +171,5 @@ if __name__ == "__main__":
                                             .option('checkpointLocation', '/tmp/checkpoint') \
                                             .option('keyspace', 'spark_streams') \
                                             .option('table', 'created_users') \
-                                            .start()
+                                            .start()           
             streaming_query.awaitTermination()
