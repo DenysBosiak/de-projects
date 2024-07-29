@@ -71,13 +71,14 @@ def create_spark_connection():
 
     try:
         s_conn = SparkSession.builder \
-                            .appName('SparkStreaming') \
-                            .config('spark.jars.packages', "com.datastax.spark:spark-cassandra-connector_2.12:3.4.1,"
-                                                            "org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.1,"
-                                                            "org.apache.kafka:kafka-clients:7.4.0-ce") \
-                            .config('spark.cassandra.connection.host', 'localhost') \
-                            .config('spark.cassandra.connection.post', '9092') \
-                            .getOrCreate()
+                            .appName("SparkStreaming") \
+                            .config("spark.jars.packages", "com.datastax.spark:spark-cassandra-connector_2.12:3.4.1,org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.1") \
+                            .config("spark.jars", "~/workspace/de-projects/ApiKafkaStreaming/.venv/lib64/python3.12/site-packages/pyspark/jars/spark-cassandra-connector-assembly_2.12-3.4.1.jar") \
+                            .config("spark.cassandra.connection.host", "localhost") \
+                            .config("spark.cassandra.connection.port", "9042") \
+                            .config("spark.cassandra.auth.username", "cassandra") \
+                            .config("spark.cassandra.auth.password", "cassandra") \
+                            .getOrCreate()                            
         
         s_conn.sparkContext.setLogLevel("ERROR")
         logging.info("Spark connection created successfully!")
@@ -130,9 +131,10 @@ def create_selection_df_from_kafka(spark_df):
             StructField("last_name", StringType(), False),
             StructField("gender", StringType(), False),
             StructField("address", StringType(), False),
-            StructField("postcode", StringType(), False),
+            StructField("post_code", StringType(), False),
             StructField("email", StringType(), False),
             StructField("username", StringType(), False),
+            StructField("dob", StringType(), False),
             StructField("registered_date", StringType(), False),
             StructField("phone", StringType(), False),
             StructField("picture", StringType(), False)
@@ -140,7 +142,7 @@ def create_selection_df_from_kafka(spark_df):
 
         sel = spark_df.selectExpr("cast(value as string) as value")
         sel_expanded = sel.select(from_json(col('value'), schema).alias('data')).select("data.*")
-        print(sel_expanded)
+        sel_expanded.printSchema()
 
     except Exception as e:
         print(f"Couldn't create selection dataframe due to {e}")
@@ -167,9 +169,12 @@ if __name__ == "__main__":
             
             logging.info("Streaming is being started...")
 
-            streaming_query = selection_df.writeStream.format("org.apache.spark.sql.cassandra") \
-                                            .option('checkpointLocation', '/tmp/checkpoint') \
-                                            .option('keyspace', 'spark_streams') \
-                                            .option('table', 'created_users') \
-                                            .start()           
+            streaming_query = selection_df.writeStream \
+                                            .format("org.apache.spark.sql.cassandra") \
+                                            .option("checkpointLocation", "/tmp/checkpoint") \
+                                            .options(table="created_users", keyspace="spark_streams") \
+                                            .outputMode("append") \
+                                            .start()
             streaming_query.awaitTermination()
+
+        # print(spark_conn.sparkContext._jsc.sc().listJars())
