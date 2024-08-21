@@ -49,7 +49,6 @@ def insert_data(session, **kwargs):
     postcode = kwargs.get('post_code')
     email = kwargs.get('email')
     username= kwargs.get('username')
-    dob = kwargs.get('dob')
     registered_date = kwargs.get('registered_date')
     phone = kwargs.get('phone')
     picture = kwargs.get('picture')
@@ -57,9 +56,9 @@ def insert_data(session, **kwargs):
     try:
         session.execute("""
             INSERT INTO spark_streams.created_users
-            (id, first_name, last_name, gender, address, postcode, email, username, dob, registered_date, phone, picture)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-        """, (user_id, first_name, last_name, gender, address, postcode, email, username, dob, registered_date, phone, picture))
+            (id, first_name, last_name, gender, address, postcode, email, username, registered_date, phone, picture)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """, (user_id, first_name, last_name, gender, address, postcode, email, username, registered_date, phone, picture))
         logging.info(f"Data inserted for {first_name} {last_name}")
     
     except Exception as e:
@@ -79,6 +78,7 @@ def create_spark_connection():
                             .appName("SparkStreaming") \
                             .config("spark.jars.packages", ",".join(JAR_PACKAGES)) \
                             .config("spark.cassandra.connection.host", "localhost") \
+                            .config("spark.cassandra.connection.port", "9042") \
                             .getOrCreate()                            
         
         s_conn.sparkContext.setLogLevel("ERROR")
@@ -98,6 +98,7 @@ def connect_to_kafka(spark_conn):
             .option("kafka.bootstrap.servers", "localhost:9092") \
             .option("subscribe", "users_created") \
             .option("startingOffsets", "earliest") \
+            .option("failOnDataLoss", "False") \
             .load()
         logging.info("Kafka dataframe created successfully!")
         print("Kafka Dataframe was created successfully") 
@@ -111,7 +112,7 @@ def connect_to_kafka(spark_conn):
 def create_cassandra_connection():
     try:
         # Connection to the cassandra cluster
-        cluster = Cluster(['localhost:9042'])
+        cluster = Cluster(['localhost'])
 
         cas_session = cluster.connect()
         
@@ -141,7 +142,6 @@ def create_selection_df_from_kafka(spark_df):
 
         sel = spark_df.selectExpr("cast(value as string) as value")
         sel_expanded = sel.select(from_json(col('value'), schema).alias('data')).select("data.*")
-        #sel_expanded.printSchema()
         print(sel_expanded)
 
     except Exception as e:
@@ -172,8 +172,6 @@ if __name__ == "__main__":
             streaming_query = (selection_df.writeStream
                                             .format("org.apache.spark.sql.cassandra")
                                             .option("checkpointLocation", "/tmp/checkpoint")
-                                            .option("keyspace", "spark_streams")
-                                            .option("table", "created_users")
-                                            .start())
-            
+                                            .options(keyspace="spark_streams", table="created_users")
+                                            .start())           
             streaming_query.awaitTermination()
