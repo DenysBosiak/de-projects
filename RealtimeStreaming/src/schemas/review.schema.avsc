@@ -1,0 +1,13 @@
+{
+    "type": "record",
+    "name": "customers_tip_review_schema",
+    "namespace": "com.airscholar",
+    "doc": "Schema for customer tip review",
+    "fields":[
+        {"name": "text", "type": "string"},
+        {"name": "date", "type": "string"},
+        {"name": "compliment_count", "type": "int"},
+        {"name": "business_id", "type": "string"},
+        {"name": "user_id", "type": "string"}
+    ]
+}

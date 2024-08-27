@@ -5,7 +5,7 @@ import pandas as pd
 
 
 
-def send_data_over_socket(file_path, host='127.0.0.1', port=9999, chunk_size=2):
+def send_data_over_socket(file_path, host='spark-master', port=9999, chunk_size=2):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.bind((host, port))
     s.listen(1)
@@ -42,4 +42,4 @@ def send_data_over_socket(file_path, host='127.0.0.1', port=9999, chunk_size=2):
 
 
 if __name__ == "__main__":
-    send_data_over_socket("src/datasets/english_historical_events_temp.json")
+    send_data_over_socket(file_path="./datasets/yelp_academic_dataset_tip.json")
