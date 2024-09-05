@@ -27,9 +27,6 @@ def start_streaming(spark: SparkSession):
 
             stream_df = stream_df.select(from_json(col('value'), schema).alias("data")).select(("data.*"))
 
-            # query = stream_df.writeStream.outputMode("append").format("console").options(truncate=False).start()
-            # query.awaitTermination()
-
             kafka_df = stream_df.selectExpr("CAST(user_id AS STRING) AS key", "to_json(struct(*)) AS value")
             query = (kafka_df.writeStream
                         .format("kafka")
