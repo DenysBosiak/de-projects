@@ -35,7 +35,7 @@ def index_to_elasticsearch(es: Elasticsearch, sensor_data):
 
 def consume_data():
     # Initialize the Elasticsearch client
-    es = Elasticsearch(['http://elastic:9200'])
+    es = Elasticsearch([{"host":"elastic", "Port":9200, "scheme":"sensor_data"}])
 
     # Create a Kafka consumer
     consumer = KafkaConsumer(
