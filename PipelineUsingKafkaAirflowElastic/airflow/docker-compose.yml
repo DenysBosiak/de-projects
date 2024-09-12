@@ -98,8 +98,11 @@ services:
       retries: 5
       start_period: 5s
     restart: always
+<<<<<<< HEAD
     networks:
       - app-network    
+=======
+>>>>>>> f66dffde (Initial commit)
 
   airflow-webserver:
     <<: *airflow-common
@@ -117,9 +120,12 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+<<<<<<< HEAD
     networks:
       - app-network
 
+=======
+>>>>>>> f66dffde (Initial commit)
 
   airflow-scheduler:
     <<: *airflow-common
@@ -135,8 +141,11 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+<<<<<<< HEAD
     networks:
       - app-network        
+=======
+>>>>>>> f66dffde (Initial commit)
 
   airflow-triggerer:
     <<: *airflow-common
@@ -152,8 +161,11 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+<<<<<<< HEAD
     networks:
       - app-network        
+=======
+>>>>>>> f66dffde (Initial commit)
 
   airflow-init:
     <<: *airflow-common
@@ -218,8 +230,11 @@ services:
     user: "0:0"
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}:/sources
+<<<<<<< HEAD
     networks:
       - app-network      
+=======
+>>>>>>> f66dffde (Initial commit)
 
   airflow-cli:
     <<: *airflow-common
@@ -235,8 +250,12 @@ services:
       - airflow
 
 volumes:
+<<<<<<< HEAD
   postgres-db-volume:
 
 networks:
   app-network:
     external: True
+=======
+  postgres-db-volume:
+>>>>>>> f66dffde (Initial commit)
