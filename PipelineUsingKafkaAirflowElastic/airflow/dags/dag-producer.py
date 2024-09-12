@@ -16,7 +16,7 @@ def generate_sensor_data(id):
     sensor_data ={
         "sensor_id": id,
         "temperature": round(random.uniform(20.0, 30.0), 2), # Random temperature between 20.0 and 30.0 degrees
-        "humidity": round(random.uniform(30.0, 60,0) ,2), # Random humidity betwen 30.0% and 60.0%
+        "humidity": round(random.uniform(30.0, 60.0), 2), # Random humidity betwen 30.0% and 60.0%
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
     
