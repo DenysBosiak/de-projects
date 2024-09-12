@@ -33,6 +33,7 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://broker:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
@@ -66,7 +67,7 @@ services:
       - "8081:8081"
     environment:
       SCHEMA_REGISTRY_HOST_NAME: schema-registry
-      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'broker:29092'
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: broker:29092
       SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
     networks:
       - confluent
@@ -164,16 +165,25 @@ services:
       - confluent     
 
   spark-master:
-    image: bitnami/spark:latest
+    image: bitnami/spark:3.4.1
+    container_name: spark-master
+    hostname: spark-master    
     command: bin/spark-class org.apache.spark.deploy.master.Master
+    volumes:
+      - ./spark_stream.py:/opt/bitnami/spark/spark_stream.py
     ports:
       - "9090:8080"
       - "7077:7077"
     networks:
       - confluent
+
   spark-worker:
-    image: bitnami/spark:latest
+    image: bitnami/spark:3.4.1
+    container_name: spark-worker
+    hostname: spark-worker    
     command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    volumes:
+      - ./spark_stream.py:/opt/bitnami/spark/spark_stream.py
     depends_on:
       - spark-master
     environment:
