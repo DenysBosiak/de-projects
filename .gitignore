@@ -7,3 +7,4 @@ logs/
 .venv
 venv
 .git-old/
+__pycache__/
