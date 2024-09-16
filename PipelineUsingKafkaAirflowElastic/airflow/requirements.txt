@@ -1,4 +1,4 @@
 kafka-python-ng
 pandas
 apache-airflow
-elasticsearch
+elasticsearch==7.17.9
