@@ -22,7 +22,7 @@ def index_to_elasticsearch(es: Elasticsearch, sensor_data):
         # Index the data into Elasticsearch
         es.index(
             index="sensor_data", # Elasticsearch index name
-            body={
+            document={
                 'sensor_id': sensor_data['sensor_id'],
                 'temperature': sensor_data['temperature'],
                 'humidity': sensor_data['humidity'],
